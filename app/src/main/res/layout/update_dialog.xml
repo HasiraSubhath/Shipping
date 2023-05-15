@@ -49,14 +49,27 @@
 
         />
 
+    <EditText
+        android:id="@+id/etCZip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="ZIP"
+        android:fontFamily="@font/tomorrow_medium"
+
+        android:inputType="textPersonName"
+
+        />
+
     <Button
         android:id="@+id/btnUpdateData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/Darkgreen"
-        android:text="Update Delivery"
+        android:backgroundTint="@color/purple_700"
+        android:text="Update Shipping"
         android:fontFamily="@font/tomorrow_medium"
         />
 
