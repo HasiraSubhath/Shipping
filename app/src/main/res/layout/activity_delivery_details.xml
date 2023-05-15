@@ -7,10 +7,23 @@
     tools:context=".activities.DeliveryDetailsActivity">
 
     <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="662dp"
+        android:layout_height="756dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/pink" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="670dp"
         android:layout_height="237dp"
         android:layout_marginBottom="100dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.61"
@@ -23,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:backgroundTint="@color/red"
-        android:text="Delete"
         android:fontFamily="@font/tomorrow_medium"
+        android:text="Delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnUpdate"
@@ -36,8 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:backgroundTint="@color/purple_700"
-        android:text="Update"
         android:fontFamily="@font/tomorrow_medium"
+        android:text="Update"
         app:layout_constraintEnd_toStartOf="@+id/btnDelete"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,15 +150,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/Darkgreen">
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/tomorrow_medium"
                     android:gravity="center"
                     android:text="Name"
-                    android:fontFamily="@font/tomorrow_medium"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -188,15 +201,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/Darkgreen">
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/tomorrow_medium"
                     android:gravity="center"
                     android:text="Contact"
-                    android:fontFamily="@font/tomorrow_medium"
                     android:textColor="@color/black"
                     android:textSize="15sp"
 
@@ -243,15 +256,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/Darkgreen">
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/tomorrow_medium"
                     android:gravity="center"
                     android:text="Address"
-                    android:fontFamily="@font/tomorrow_medium"
                     android:textColor="@color/black"
                     android:textSize="15sp"
 
@@ -266,7 +279,7 @@
                 android:layout_weight="1.4">
 
                 <TextView
-                    android:id="@+id/tvCCvv"
+                    android:id="@+id/tvCAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -297,15 +310,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/Darkgreen">
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/tomorrow_medium"
                     android:gravity="center"
                     android:text="E-mail"
-                    android:fontFamily="@font/tomorrow_medium"
                     android:textColor="@color/black"
                     android:textSize="15sp"
 
@@ -320,7 +333,7 @@
                 android:layout_weight="1.4">
 
                 <TextView
-                    android:id="@+id/tvCDate"
+                    android:id="@+id/tvCEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -351,15 +364,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/Darkgreen">
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/tomorrow_medium"
                     android:gravity="center"
                     android:text="ZIP"
-                    android:fontFamily="@font/tomorrow_medium"
                     android:textColor="@color/black"
                     android:textSize="15sp"
 
@@ -374,7 +387,7 @@
                 android:layout_weight="1.4">
 
                 <TextView
-                    android:id="@+id/tvPPrice"
+                    android:id="@+id/tvCZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
