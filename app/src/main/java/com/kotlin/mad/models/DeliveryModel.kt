@@ -5,6 +5,7 @@ data class DeliveryModel(
     var cName: String? = null,
     var cNumber: String? = null,
     var cAddress: String? = null,
-    var cEmail: String? = null
+    var cEmail: String? = null,
+    var cZip: String? = null
 
 )

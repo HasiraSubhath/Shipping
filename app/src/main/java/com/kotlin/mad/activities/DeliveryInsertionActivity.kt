@@ -18,6 +18,7 @@ class DeliveryInsertionActivity : AppCompatActivity() {
     private lateinit var etCNumber: EditText
     private lateinit var etCAddress: EditText
     private lateinit var etCEmail: EditText
+    private lateinit var etCZip: EditText
     private lateinit var btnSaveData: Button
 
     private lateinit var dbRef: DatabaseReference
@@ -31,9 +32,10 @@ class DeliveryInsertionActivity : AppCompatActivity() {
         etCNumber = findViewById(R.id.etCNumber)
         etCAddress = findViewById(R.id.etCAddress)
         etCEmail = findViewById(R.id.etCEmail)
+        etCZip = findViewById(R.id.etCZip)
         btnSaveData = findViewById(R.id.btnSave)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("DeliveryDB")
+        dbRef = FirebaseDatabase.getInstance().getReference("ShippingDB")
 
         btnSaveData.setOnClickListener {
             saveDeliveryData()
@@ -48,9 +50,10 @@ class DeliveryInsertionActivity : AppCompatActivity() {
         val cNumber = etCNumber.text.toString()
         val cAddress = etCAddress.text.toString()
         val cEmail = etCEmail.text.toString()
+        val cZip = etCZip.text.toString()
 
         //validation
-        if (cName.isEmpty() || cNumber.isEmpty() || cAddress.isEmpty() || cEmail.isEmpty()) {
+        if (cName.isEmpty() || cNumber.isEmpty() || cAddress.isEmpty() || cEmail.isEmpty() || cZip.isEmpty()) {
 
             if (cName.isEmpty()) {
                 etCName.error = "Please Enter Customer Name"
@@ -64,13 +67,16 @@ class DeliveryInsertionActivity : AppCompatActivity() {
             if (cEmail.isEmpty()) {
                 etCEmail.error = "Please Enter Email"
             }
-            Toast.makeText(this, "please check Some areas are not filled", Toast.LENGTH_LONG).show()
+            if (cZip.isEmpty()) {
+                etCZip.error = "Please Enter Zip Code"
+            }
+            Toast.makeText(this, "Fill all Fields", Toast.LENGTH_LONG).show()
         } else {
 
             //genrate unique ID
             val cId = dbRef.push().key!!
 
-            val bill = DeliveryModel(cId, cName, cNumber, cAddress, cEmail)
+            val bill = DeliveryModel(cId, cName, cNumber, cAddress, cEmail, cZip)
 
             dbRef.child(cId).setValue(bill)
                 .addOnCompleteListener {
@@ -81,6 +87,7 @@ class DeliveryInsertionActivity : AppCompatActivity() {
                     etCNumber.text.clear()
                     etCAddress.text.clear()
                     etCEmail.text.clear()
+                    etCZip.text.clear()
 
 
                 }.addOnFailureListener { err ->

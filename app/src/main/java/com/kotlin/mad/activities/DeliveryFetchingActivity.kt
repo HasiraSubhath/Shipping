@@ -41,7 +41,7 @@ class DeliveryFetchingActivity : AppCompatActivity() {
         empRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
-        dbRef = FirebaseDatabase.getInstance().getReference("DeliveryDB")
+        dbRef = FirebaseDatabase.getInstance().getReference("ShippingDB")
 
         dbRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -65,6 +65,7 @@ class DeliveryFetchingActivity : AppCompatActivity() {
                             intent.putExtra("cNumber", billList[position].cNumber)
                             intent.putExtra("cAddress", billList[position].cAddress)
                             intent.putExtra("cEmail", billList[position].cEmail)
+                            intent.putExtra("cZip", billList[position].cZip)
                             startActivity(intent)
                         }
 

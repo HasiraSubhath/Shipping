@@ -19,6 +19,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
     private lateinit var tvCNumber: TextView
     private lateinit var tvCAddress: TextView
     private lateinit var tvCEmail: TextView
+    private lateinit var tvCZip: TextView
 
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
@@ -49,7 +50,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
     private fun deleteRecord(
         id: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("DeliveryDB").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("ShippingDB").child(id)
         val mTask = dbRef.removeValue()
 
         mTask.addOnSuccessListener {
@@ -73,6 +74,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
         tvCNumber = findViewById(R.id.tvCNumber)
         tvCAddress = findViewById(R.id.tvCAddress)
         tvCEmail = findViewById(R.id.tvCEmail)
+        tvCZip = findViewById(R.id.tvCZip)
 
         btnUpdate = findViewById(R.id.btnUpdate)
         btnDelete = findViewById(R.id.btnDelete)
@@ -85,6 +87,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
         tvCNumber.text = intent.getStringExtra("cNumber")
         tvCAddress.text = intent.getStringExtra("cAddress")
         tvCEmail.text = intent.getStringExtra("cEmail")
+        tvCZip.text = intent.getStringExtra("cZip")
 
     }
 
@@ -103,6 +106,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
         val etCNumber = mDialogView.findViewById<EditText>(R.id.etCNumber)
         val etCAddress = mDialogView.findViewById<EditText>(R.id.etCAddress)
         val etCEmail = mDialogView.findViewById<EditText>(R.id.etCEmail)
+        val etCZip = mDialogView.findViewById<EditText>(R.id.etCZip)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.btnUpdateData)
 
@@ -111,6 +115,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
         etCNumber.setText(intent.getStringExtra("cNumber").toString())
         etCAddress.setText(intent.getStringExtra("cAddress").toString())
         etCEmail.setText(intent.getStringExtra("cEmail").toString())
+        etCZip.setText(intent.getStringExtra("cZip").toString())
 
         mDialog.setTitle("Updating $cName Record")
 
@@ -123,7 +128,8 @@ class DeliveryDetailsActivity : AppCompatActivity() {
                 etCName.text.toString(),
                 etCNumber.text.toString(),
                 etCAddress.text.toString(),
-                etCEmail.text.toString()
+                etCEmail.text.toString(),
+                etCZip.text.toString()
 
             )
 
@@ -134,6 +140,7 @@ class DeliveryDetailsActivity : AppCompatActivity() {
             tvCNumber.text = etCNumber.text.toString()
             tvCAddress.text = etCAddress.text.toString()
             tvCEmail.text = etCEmail.text.toString()
+            tvCZip.text = etCZip.text.toString()
 
             alertDialog.dismiss()
 
@@ -146,10 +153,11 @@ class DeliveryDetailsActivity : AppCompatActivity() {
         name: String,
         number: String,
         address: String,
-        email: String
+        email: String,
+        zip: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("DeliveryDB").child(id)
-        val deliveryInfo = DeliveryModel(id, name, number, address, email)
+        val dbRef = FirebaseDatabase.getInstance().getReference("ShippingDB").child(id)
+        val deliveryInfo = DeliveryModel(id, name, number, address, email, zip)
         dbRef.setValue(deliveryInfo)
     }
 }
